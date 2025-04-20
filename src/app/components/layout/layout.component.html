@@ -1,0 +1,39 @@
+<div class="app-container">
+    <header class="app-header">
+        <div class="logo">
+            <img src="assets/logo.svg" alt="Moneytolia Logo" class="logo-image" />
+        </div>
+        <div class="user-actions">
+            <div class="language-selector">
+                <select [ngModel]="currentLang" (ngModelChange)="changeLanguage($event)" class="language-dropdown">
+                    <option value="tr">{{ 'LANGUAGE.TR' | translate }}</option>
+                    <option value="en">{{ 'LANGUAGE.EN' | translate }}</option>
+                </select>
+            </div>
+            <button (click)="logout()" class="logout-button">
+                {{ 'HEADER.LOGOUT' | translate }}
+            </button>
+        </div>
+    </header>
+    <div class="main-content">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li>
+                        <a routerLink="/dashboard" routerLinkActive="active">
+                            {{ 'SIDEBAR.CAMPAIGN_LIST' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/campaign/create" routerLinkActive="active">
+                            {{ 'SIDEBAR.CAMPAIGN_CREATE' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>

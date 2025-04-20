@@ -1,0 +1,42 @@
+<div class="campaign-list-container">
+    <h2>{{ 'CAMPAIGN.LIST.TITLE' | translate }}</h2>
+
+    <div *ngIf="campaigns.length === 0" class="empty-state">
+        <p>{{ 'CAMPAIGN.LIST.EMPTY' | translate }}</p>
+    </div>
+
+    <div *ngIf="campaigns.length > 0" class="campaigns">
+        <div class="campaigns-header">
+            <div class="header-item">{{ 'CAMPAIGN.LIST.HEADERS.NAME' | translate }}</div>
+            <div class="header-item">{{ 'CAMPAIGN.LIST.HEADERS.DESCRIPTION' | translate }}</div>
+            <div class="header-item">{{ 'CAMPAIGN.LIST.HEADERS.POINTS' | translate }}</div>
+            <div class="header-item">{{ 'CAMPAIGN.LIST.HEADERS.DATE' | translate }}</div>
+            <div class="header-item">{{ 'CAMPAIGN.LIST.HEADERS.ACTIONS' | translate }}</div>
+        </div>
+
+        <div *ngFor="let campaign of campaigns" class="campaign-item">
+            <div class="campaign-title">{{ campaign.title }}</div>
+            <div class="campaign-description">{{ campaign.description }}</div>
+            <div class="campaign-points">
+                <div class="points-control">
+                    <button class="point-button decrease" (click)="adjustPoints(campaign.id, -1)"
+                        [disabled]="campaign.points <= 0">−</button>
+                    <span class="points-value">{{ campaign.points }}</span>
+                    <button class="point-button increase" (click)="adjustPoints(campaign.id, 1)">+</button>
+                </div>
+            </div>
+            <div class="campaign-date">{{ campaign.date }}</div>
+            <div class="campaign-actions">
+                <button class="action-button edit" (click)="editCampaign(campaign)">
+                    {{ 'CAMPAIGN.LIST.BUTTONS.EDIT' | translate }}
+                </button>
+                <button class="action-button delete" (click)="deleteCampaign(campaign.id)">
+                    {{ 'CAMPAIGN.LIST.BUTTONS.DELETE' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-campaign-modal [visible]="isModalVisible" [campaign]="selectedCampaign" (close)="closeModal()"
+    (save)="saveCampaign($event)"></app-campaign-modal>

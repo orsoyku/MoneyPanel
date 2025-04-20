@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40">
-  <rect width="120" height="40" rx="8" fill="#4a90e2"/>
-  <text x="60" y="25" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Moneytolia</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="36" viewBox="0 0 140 36">
+  <rect width="140" height="36" rx="4" fill="#FF8C00"/>
+  
+  <text x="70" y="23" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">MONEYTOLIA</text>
 </svg> 

@@ -1,0 +1,67 @@
+{
+    "APP": {
+        "TITLE": "Moneytolia"
+    },
+    "LOGIN": {
+        "TITLE": "Giriş Yap",
+        "USERNAME": "Kullanıcı Adı",
+        "PASSWORD": "Şifre",
+        "BUTTON": "Giriş Yap",
+        "ERROR": {
+            "REQUIRED": "Kullanıcı adı ve şifre zorunludur.",
+            "INVALID": "Kullanıcı adı veya şifre hatalı."
+        },
+        "INFO": "Kullanıcı adı: admin, Şifre: admin123"
+    },
+    "HEADER": {
+        "LOGOUT": "Çıkış Yap"
+    },
+    "SIDEBAR": {
+        "CAMPAIGN_LIST": "Kampanya Listesi",
+        "CAMPAIGN_CREATE": "Kampanya Oluştur"
+    },
+    "CAMPAIGN": {
+        "LIST": {
+            "TITLE": "Kampanya Listesi",
+            "EMPTY": "Henüz hiç kampanya oluşturulmamış.",
+            "HEADERS": {
+                "NAME": "Kampanya Adı",
+                "DESCRIPTION": "Açıklama",
+                "POINTS": "Puan",
+                "DATE": "Tarih",
+                "ACTIONS": "İşlemler"
+            },
+            "BUTTONS": {
+                "EDIT": "Düzenle",
+                "DELETE": "Sil"
+            },
+            "CONFIRM_DELETE": "Bu kampanyayı silmek istediğinize emin misiniz?"
+        },
+        "CREATE": {
+            "TITLE": "Yeni Kampanya Oluştur",
+            "FORM": {
+                "TITLE": "Kampanya Başlığı",
+                "DESCRIPTION": "Kampanya Açıklaması",
+                "TITLE_REQUIRED": "Kampanya başlığı zorunludur.",
+                "DESCRIPTION_REQUIRED": "Kampanya açıklaması zorunludur.",
+                "SAVE": "Kaydet"
+            },
+            "SUCCESS": "Kampanya başarılı bir şekilde eklenmiştir."
+        },
+        "EDIT": {
+            "TITLE": "Kampanya Güncelle",
+            "FORM": {
+                "TITLE": "Kampanya Başlığı",
+                "DESCRIPTION": "Kampanya Açıklaması",
+                "TITLE_REQUIRED": "Kampanya başlığı zorunludur.",
+                "DESCRIPTION_REQUIRED": "Kampanya açıklaması zorunludur.",
+                "SAVE": "Kaydet",
+                "CANCEL": "İptal"
+            }
+        }
+    },
+    "LANGUAGE": {
+        "TR": "Türkçe",
+        "EN": "İngilizce"
+    }
+}

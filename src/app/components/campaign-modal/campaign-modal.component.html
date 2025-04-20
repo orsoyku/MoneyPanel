@@ -1,0 +1,39 @@
+<div class="modal-overlay" *ngIf="visible" (click)="closeOnOverlayClick($event)">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>{{ 'CAMPAIGN.EDIT.TITLE' | translate }}</h3>
+            <button class="close-button" (click)="onClose()">×</button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="onSave()" #campaignForm="ngForm">
+                <div class="form-group">
+                    <label for="title">{{ 'CAMPAIGN.EDIT.FORM.TITLE' | translate }} *</label>
+                    <input type="text" id="title" name="title" [(ngModel)]="editedCampaign.title" required
+                        #titleInput="ngModel" class="form-control" />
+                    <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)" class="error-message">
+                        {{ 'CAMPAIGN.EDIT.FORM.TITLE_REQUIRED' | translate }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">{{ 'CAMPAIGN.EDIT.FORM.DESCRIPTION' | translate }} *</label>
+                    <textarea id="description" name="description" [(ngModel)]="editedCampaign.description" required
+                        #descriptionInput="ngModel" class="form-control" rows="4"></textarea>
+                    <div *ngIf="descriptionInput.invalid && (descriptionInput.dirty || descriptionInput.touched)"
+                        class="error-message">
+                        {{ 'CAMPAIGN.EDIT.FORM.DESCRIPTION_REQUIRED' | translate }}
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="cancel-button" (click)="onClose()">
+                        {{ 'CAMPAIGN.EDIT.FORM.CANCEL' | translate }}
+                    </button>
+                    <button type="submit" [disabled]="!campaignForm.form.valid" class="save-button">
+                        {{ 'CAMPAIGN.EDIT.FORM.SAVE' | translate }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
