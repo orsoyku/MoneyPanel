@@ -1,6 +1,6 @@
 # MoneyPanel
 
-MoneyPanel, kampanya yönetimini kolaylaştıran, çok dilli bir Angular uygulamasıdır.
+MoneyPanel, kampanya yönetimini kolaylaştıran bir Angular uygulamasıdır.
 
 ## Teknoloji Detayları
 
@@ -17,7 +17,6 @@ MoneyPanel, kampanya yönetimini kolaylaştıran, çok dilli bir Angular uygulam
 - Kampanya listesi görüntüleme
 - Kampanya oluşturma ve düzenleme
 - Kampanya puanı ayarlama
-- Çok dilli destek (Türkçe ve İngilizce)
 
 ## Kurulum
 
@@ -38,7 +37,6 @@ Uygulama şu dilleri desteklemektedir:
 - Türkçe (Varsayılan)
 - İngilizce
 
-Dil değiştirme seçenekleri hem giriş ekranında hem de ana uygulamada bulunmaktadır.
 
 ## Giriş Bilgileri
 
