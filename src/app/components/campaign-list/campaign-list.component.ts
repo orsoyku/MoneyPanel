@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Campaign, CampaignService } from '../../services/campaign.service';
 import { CampaignModalComponent } from '../campaign-modal/campaign-modal.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-campaign-list',
@@ -11,10 +13,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   templateUrl: './campaign-list.component.html',
   styleUrls: ['./campaign-list.component.scss']
 })
-export class CampaignListComponent implements OnInit {
+export class CampaignListComponent implements OnInit, OnDestroy {
   campaigns: Campaign[] = [];
   isModalVisible = false;
   selectedCampaign: Campaign | null = null;
+  private campaignsSubscription?: Subscription;
 
   constructor(
     private campaignService: CampaignService,
@@ -22,9 +25,15 @@ export class CampaignListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.campaignService.getCampaigns().subscribe(campaigns => {
+    this.campaignsSubscription = this.campaignService.getCampaigns().subscribe(campaigns => {
       this.campaigns = campaigns;
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.campaignsSubscription) {
+      this.campaignsSubscription.unsubscribe();
+    }
   }
 
   adjustPoints(id: string, amount: number): void {
@@ -37,11 +46,13 @@ export class CampaignListComponent implements OnInit {
   }
 
   deleteCampaign(id: string): void {
-    this.translateService.get('CAMPAIGN.LIST.CONFIRM_DELETE').subscribe(msg => {
-      if (confirm(msg)) {
-        this.campaignService.deleteCampaign(id);
-      }
-    });
+    this.translateService.get('CAMPAIGN.LIST.CONFIRM_DELETE')
+      .pipe(take(1))
+      .subscribe(msg => {
+        if (confirm(msg)) {
+          this.campaignService.deleteCampaign(id);
+        }
+      });
   }
 
   closeModal(): void {
